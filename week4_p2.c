@@ -1,13 +1,14 @@
+//202110573 ìœ¤ì—¬í—Œ
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef int element;
-typedef struct ListNode { // ³ëµå Å¸ÀÔÀ» ±¸Á¶Ã¼·Î Á¤ÀÇÇÑ´Ù.
+typedef struct ListNode { // ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	element data;
 	struct ListNode* link;
 } ListNode;
 
-// ¸Ç ¾Õ¿¡ ³ëµå »ðÀÔ 
+// ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 ListNode* insert_first(ListNode* head, element value) {
 	ListNode* p = (ListNode*)malloc(sizeof(ListNode));
 	p->data = value;
@@ -16,7 +17,7 @@ ListNode* insert_first(ListNode* head, element value) {
 	return head;
 }
 
-// ³ëµå pre µÚ¿¡ »õ·Î¿î ³ëµå »ðÀÔ
+// ï¿½ï¿½ï¿½ pre ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 ListNode* insert(ListNode* head, ListNode* pre, element value) {
 	ListNode* p = (ListNode*)malloc(sizeof(ListNode));
 	p->data = value;
@@ -25,7 +26,7 @@ ListNode* insert(ListNode* head, ListNode* pre, element value) {
 	return head;
 }
 
-// ¸Ç ¾ÕÀÇ ³ëµå¸¦ »èÁ¦
+// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½
 ListNode* remove_first(ListNode* head) {
 	ListNode* removed;
 	if (head == NULL)
@@ -36,7 +37,7 @@ ListNode* remove_first(ListNode* head) {
 	return head;
 }
 
-// pre°¡ °¡¸®Å°´Â ³ëµåÀÇ ´ÙÀ½ ³ëµå¸¦ »èÁ¦ÇÑ´Ù. 
+// preï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 ListNode* remove(ListNode* head, ListNode* pre) {
 	ListNode* removed;
 	removed = pre->link;
@@ -45,7 +46,7 @@ ListNode* remove(ListNode* head, ListNode* pre) {
 	return head;
 }
 
-// ³ëµå Å½»ö
+// ï¿½ï¿½ï¿½ Å½ï¿½ï¿½
 ListNode* search_list(ListNode* head, element x) {
 	ListNode* p = head;
 
@@ -58,7 +59,7 @@ ListNode* search_list(ListNode* head, element x) {
 		if (p->data == x) return p;
 	}
 
-	return NULL;  // Å½»ö ½ÇÆÐ
+	return NULL;  // Å½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 }
 
 void print_list(ListNode* head) {
@@ -77,9 +78,9 @@ int main() {
 	int searchvalue = 30;
 	ListNode* foundnode = search_list(head, searchvalue);
 	if (foundnode != NULL)
-		printf("¸®½ºÆ®¿¡¼­ %dÀ» Ã£¾Ò½À´Ï´Ù.\n", foundnode->data);
+		printf("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ %dï¿½ï¿½ Ã£ï¿½Ò½ï¿½ï¿½Ï´ï¿½.\n", foundnode->data);
 	else
-		printf("¸®½ºÆ®¿¡¼­ %dÀ» Ã£Áö ¸øÇß½À´Ï´Ù.\n", searchvalue);
+		printf("ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ï¿½ï¿½ %dï¿½ï¿½ Ã£ï¿½ï¿½ ï¿½ï¿½ï¿½ß½ï¿½ï¿½Ï´ï¿½.\n", searchvalue);
 
 	return 0;
 }

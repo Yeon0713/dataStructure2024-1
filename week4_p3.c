@@ -1,13 +1,15 @@
+//202110573 ìœ¤ì—¬í—Œ
+
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef int element;
-typedef struct ListNode { // ³ëµå Å¸ÀÔÀ» ±¸Á¶Ã¼·Î Á¤ÀÇÇÑ´Ù.
+typedef struct ListNode { // ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	element data;
 	struct ListNode* link;
 } ListNode;
 
-// ¸Ç ¾Õ¿¡ ³ëµå »ðÀÔ 
+// ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 ListNode* insert_first(ListNode* head, element value) {
 	ListNode* p = (ListNode*)malloc(sizeof(ListNode));
 	p->data = value;
@@ -16,7 +18,7 @@ ListNode* insert_first(ListNode* head, element value) {
 	return head;
 }
 
-// ³ëµå pre µÚ¿¡ »õ·Î¿î ³ëµå »ðÀÔ
+// ï¿½ï¿½ï¿½ pre ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 ListNode* insert(ListNode* head, ListNode* pre, element value) {
 	ListNode* p = (ListNode*)malloc(sizeof(ListNode));
 	p->data = value;
@@ -25,7 +27,7 @@ ListNode* insert(ListNode* head, ListNode* pre, element value) {
 	return head;
 }
 
-// ¸Ç ¾ÕÀÇ ³ëµå¸¦ »èÁ¦
+// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½
 ListNode* remove_first(ListNode* head) {
 	ListNode* removed;
 	if (head == NULL)
@@ -36,7 +38,7 @@ ListNode* remove_first(ListNode* head) {
 	return head;
 }
 
-// pre°¡ °¡¸®Å°´Â ³ëµåÀÇ ´ÙÀ½ ³ëµå¸¦ »èÁ¦ÇÑ´Ù. 
+// preï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 ListNode* remove(ListNode* head, ListNode* pre) {
 	ListNode* removed;
 	removed = pre->link;
@@ -45,7 +47,7 @@ ListNode* remove(ListNode* head, ListNode* pre) {
 	return head;
 }
 
-// 2°³ÀÇ ¸®½ºÆ®¸¦ ÇÕÇÏ´Â ÇÔ¼ö
+// 2ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½
 ListNode* concat_list(ListNode* head1, ListNode* head2) {
 	if (head1 == NULL) return head2;
 	else if (head2 == NULL) return NULL;

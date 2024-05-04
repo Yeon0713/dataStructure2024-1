@@ -1,4 +1,4 @@
-//202110573 À±¿©Çå
+//202110573 ìœ¤ì—¬í—Œ
 
 #include <stdio.h>
 #include <stdlib.h>
@@ -6,28 +6,28 @@
 #define max(a,b) (((a)>(b))?(a):(b))
 #define max_degree 101
 
-typedef struct { // ´ÙÇ×½Ä ±¸Á¶Ã¼ Å¸ÀÔ ¼±¾ð
-	int degree;// ´ÙÇ×½ÄÀÇ Â÷¼ö
-	float coef[max_degree];// ´ÙÇ×½ÄÀÇ °è¼ö
+typedef struct { // ï¿½ï¿½ï¿½×½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ Å¸ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	int degree;// ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
+	float coef[max_degree];// ï¿½ï¿½ï¿½×½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 } polynomial;
 
-//polynomial poly_add1(polynomial a, polynomial b) { // c = a+b ¿©±â¼­ a¿Í b´Â ´ÙÇ×½ÄÀÌ´Ù. ±¸Á¶Ã¼°¡ ¹ÝÈ¯µÈ´Ù. 
-//	polynomial c;// °á°ú ´ÙÇ×½Ä
-//	int apos = 0, bpos = 0, cpos = 0;// ¹è¿­ ÀÎµ¦½º º¯¼ö
+//polynomial poly_add1(polynomial a, polynomial b) { // c = a+b ï¿½ï¿½ï¿½â¼­ aï¿½ï¿½ bï¿½ï¿½ ï¿½ï¿½ï¿½×½ï¿½ï¿½Ì´ï¿½. ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½È¯ï¿½È´ï¿½. 
+//	polynomial c;// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×½ï¿½
+//	int apos = 0, bpos = 0, cpos = 0;// ï¿½cd è¿­ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	int degree_a = a.degree;
 //	int degree_b = b.degree;
-//	c.degree = max(a.degree, b.degree); // °á°ú ´ÙÇ×½Ä Â÷¼ö
+//	c.degree = max(a.degree, b.degree); // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×½ï¿½ ï¿½ï¿½ï¿½ï¿½
 //	while (apos <= a.degree && bpos <= b.degree) {
-//		if (degree_a > degree_b) {  // aÇ× > bÇ×
+//		if (degree_a > degree_b) {  // aï¿½ï¿½ > bï¿½ï¿½
 //			c.coef[cpos++] = a.coef[apos++];
 //			degree_a--;
 //		}
-//		else if(degree_a == degree_b) {  // aÇ× == bÇ×
+//		else if(degree_a == degree_b) {  // aï¿½ï¿½ == bï¿½ï¿½
 //			c.coef[cpos++] = a.coef[apos++] + b.coef[bpos++];
 //			degree_a--;
 //			degree_b--;
 //		}
-//		else {// bÇ× > aÇ×
+//		else {// bï¿½ï¿½ > aï¿½ï¿½
 //			c.coef[cpos++] = b.coef[bpos++];
 //			degree_b--;
 //		}
@@ -35,23 +35,23 @@ typedef struct { // ´ÙÇ×½Ä ±¸Á¶Ã¼ Å¸ÀÔ ¼±¾ð
 //	return c;
 //}
 
-polynomial poly_sub1(polynomial a, polynomial b) { // c = a+b ¿©±â¼­ a¿Í b´Â ´ÙÇ×½ÄÀÌ´Ù. ±¸Á¶Ã¼°¡ ¹ÝÈ¯µÈ´Ù. 
-	polynomial c;// °á°ú ´ÙÇ×½Ä
-	int apos = 0, bpos = 0, cpos = 0;// ¹è¿­ ÀÎµ¦½º º¯¼ö
+polynomial poly_sub1(polynomial a, polynomial b) { // c = a+b ï¿½ï¿½ï¿½â¼­ aï¿½ï¿½ bï¿½ï¿½ ï¿½ï¿½ï¿½×½ï¿½ï¿½Ì´ï¿½. ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½È¯ï¿½È´ï¿½. 
+	polynomial c;// ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×½ï¿½
+	int apos = 0, bpos = 0, cpos = 0;// ï¿½è¿­ ï¿½Îµï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	int degree_a = a.degree;
 	int degree_b = b.degree;
-	c.degree = max(a.degree, b.degree); // °á°ú ´ÙÇ×½Ä Â÷¼ö
+	c.degree = max(a.degree, b.degree); // ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½×½ï¿½ ï¿½ï¿½ï¿½ï¿½
 	while (apos <= a.degree && bpos <= b.degree) {
-		if (degree_a > degree_b) {  // aÇ× > bÇ×
+		if (degree_a > degree_b) {  // aï¿½ï¿½ > bï¿½ï¿½
 			c.coef[cpos++] = a.coef[apos++];
 			degree_a--;
 		}
-		else if (degree_a == degree_b) {  // aÇ× == bÇ×
+		else if (degree_a == degree_b) {  // aï¿½ï¿½ == bï¿½ï¿½
 			c.coef[cpos++] = a.coef[apos++] - b.coef[bpos++];
 			degree_a--;
 			degree_b--;
 		}
-		else {// bÇ× > aÇ×
+		else {// bï¿½ï¿½ > aï¿½ï¿½
 			c.coef[cpos++] = b.coef[bpos++];
 			degree_b--;
 		}

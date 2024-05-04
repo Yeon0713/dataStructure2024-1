@@ -1,13 +1,15 @@
+//202110573 ìœ¤ì—¬í—Œ
+
 #include <stdio.h>
 #include <stdlib.h>
 
 typedef int element;
-typedef struct ListNode { // ³ëµå Å¸ÀÔÀ» ±¸Á¶Ã¼·Î Á¤ÀÇÇÑ´Ù.
+typedef struct ListNode { // ï¿½ï¿½ï¿½ Å¸ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Ã¼ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½.
 	element data;
 	struct ListNode* link;
 } ListNode;
 
-// ¸Ç ¾Õ¿¡ ³ëµå »ðÀÔ 
+// ï¿½ï¿½ ï¿½Õ¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ 
 ListNode* insert_first(ListNode* head, element value) {
 	ListNode* p = (ListNode*)malloc(sizeof(ListNode));
 	p->data = value;
@@ -16,7 +18,7 @@ ListNode* insert_first(ListNode* head, element value) {
 	return head;
 }
 
-// ³ëµå pre µÚ¿¡ »õ·Î¿î ³ëµå »ðÀÔ
+// ï¿½ï¿½ï¿½ pre ï¿½Ú¿ï¿½ ï¿½ï¿½ï¿½Î¿ï¿½ ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½
 ListNode* insert(ListNode* head, ListNode* pre, element value) {
 	ListNode* p = (ListNode*)malloc(sizeof(ListNode));
 	p->data = value;
@@ -25,7 +27,7 @@ ListNode* insert(ListNode* head, ListNode* pre, element value) {
 	return head;
 }
 
-// ¸Ç ¾ÕÀÇ ³ëµå¸¦ »èÁ¦
+// ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½
 ListNode* remove_first(ListNode* head) {
 	ListNode* removed;
 	if (head == NULL)
@@ -36,7 +38,7 @@ ListNode* remove_first(ListNode* head) {
 	return head;
 }
 
-// pre°¡ °¡¸®Å°´Â ³ëµåÀÇ ´ÙÀ½ ³ëµå¸¦ »èÁ¦ÇÑ´Ù. 
+// preï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Å°ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½å¸¦ ï¿½ï¿½ï¿½ï¿½ï¿½Ñ´ï¿½. 
 ListNode* remove(ListNode* head, ListNode* pre) {
 	ListNode* removed;
 	removed = pre->link;
@@ -45,20 +47,20 @@ ListNode* remove(ListNode* head, ListNode* pre) {
 	return head;
 }
 
-// ¿ª¼øÀÇ ¸®½ºÆ®¸¦ ¸®ÅÏÇÏ´Â ÇÔ¼ö ÀÛ¼º
+// ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½Ï´ï¿½ ï¿½Ô¼ï¿½ ï¿½Û¼ï¿½
 ListNode* reverse(ListNode* head) {
-	// ¼øÈ¸ Æ÷ÀÎÅÍ·Î p, q, rÀ» »ç¿ë
+	// ï¿½ï¿½È¸ ï¿½ï¿½ï¿½ï¿½ï¿½Í·ï¿½ p, q, rï¿½ï¿½ ï¿½ï¿½ï¿½
 	ListNode* p, * q, * r;
 
-	p = head;  // p´Â ¿ª¼øÀ¸·Î ¸¸µé ¸®½ºÆ®
-	q = NULL;  // q´Â ¿ª¼øÀ¸·Î ¸¸µé ³ëµå
+	p = head;  // pï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+	q = NULL;  // qï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ï¿½
 
 	while (p != NULL) {
-		r = q;  // rÀº ¿ª¼øÀ¸·Î µÈ ¸®½ºÆ®
-		// rÀº q, q´Â p¸¦ Â÷·Ê·Î µû¶ó°£´Ù.
+		r = q;  // rï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½ï¿½ ï¿½ï¿½ï¿½ï¿½Æ®
+		// rï¿½ï¿½ q, qï¿½ï¿½ pï¿½ï¿½ ï¿½ï¿½ï¿½Ê·ï¿½ ï¿½ï¿½ï¿½ó°£´ï¿½.
 		q = p;
 		p = p->link;
-		q->link = r;  // qÀÇ ¸µÅ© ¹æÇâÀ» ¹Ù²Û´Ù
+		q->link = r;  // qï¿½ï¿½ ï¿½ï¿½Å© ï¿½ï¿½ï¿½ï¿½ï¿½ï¿½ ï¿½Ù²Û´ï¿½
 	}
 	return q;
 }
