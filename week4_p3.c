@@ -39,7 +39,7 @@ ListNode* remove_first(ListNode* head) {
 }
 
 // pre�� ����Ű�� ����� ���� ��带 �����Ѵ�. 
-ListNode* remove(ListNode* head, ListNode* pre) {
+ListNode* discard(ListNode* head, ListNode* pre) {
 	ListNode* removed;
 	removed = pre->link;
 	pre->link = removed->link;

@@ -44,7 +44,7 @@ ListNode* remove_first(ListNode* head) {
 }
 
 // pre�� ����Ű�� ����� ���� ��带 �����Ѵ�. 
-ListNode* remove(ListNode* head, ListNode* pre) {
+ListNode* discard(ListNode* head, ListNode* pre) {
 	ListNode* removed;
 	removed = pre->link;
 	pre->link = removed->link;
@@ -54,7 +54,7 @@ ListNode* remove(ListNode* head, ListNode* pre) {
 
 void print_list(ListNode* head) {
 	for (ListNode* p = head; p != NULL; p = p->link)
-		printf("%s->", p->data);
+		printf("%s->", p->data.name);
 	printf("NULL \n");
 }
 
